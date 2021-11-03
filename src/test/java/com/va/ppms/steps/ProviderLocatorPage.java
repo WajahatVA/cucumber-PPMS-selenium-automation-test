@@ -14,9 +14,18 @@ public class ProviderLocatorPage extends WebConnector {
 	}
 
 	public static JavascriptExecutor js = (JavascriptExecutor) driver;
+	String ActiveProvider_xpath = "//span[contains(text(),'VCA1003066812')]";
 	
+	String AgreementServices_xpath=  "//*[@title=\"Agreement Services\"]";
+	
+	String ServiceInactive_xpath=  "//*[@title=\"Inactive\"]";
+	
+	String Activate_xpath = "//*[contains(text(),'Activate')]";
+
 	String ProviderLocator_xpath = "//span[contains(text(),'Provider Locator')]";
 	
+	String AgreementsLocator_xpath = "//span[contains(text(),'Agreements')]";
+		
 	String FullAddress_xpath=  "//*[@class=\"form-control required searchBox\"]";
 	
 	String SubServiceSearch_xpath= "//*[@id=\"subsvcsearch\"]";
@@ -37,13 +46,22 @@ public class ProviderLocatorPage extends WebConnector {
 	String IFrame_xpath=  "//iframe[@id=\"FullPageWebResource\"]";
 	
 	String IFrame_xpath1=  "//iframe[@class=\"cke_wysiwyg_frame cke_reset\"]"; 
+	
+	String QuickSearch_xapth= "//*[@title=\"Select to enter data\"]";
+	
+	String QuickSearchBtn_xapth= "//*[@title=\"Start search\"]";
+	
 
 	
 
 	
 	@And("^I select the (.*) Option$")
     public void mouseOnElements(String elementName) throws Exception {
+		if (elementName.contains("Provider Locator")) {
 			con.mouseOver(elementName, ProviderLocator_xpath);
+		}else if (elementName.contains("Agreements")) {
+			con.mouseOver(elementName, AgreementsLocator_xpath);
+		}
 	}
 	
 	@And("^I Enter the FULL Address(.*)$")
@@ -68,10 +86,35 @@ public class ProviderLocatorPage extends WebConnector {
 		}
 	
 	@And("^I Expand the Search Results$")
-	   public void searchResults() throws Exception {
-		      
+	   public void searchResults() throws Exception {  
 			   con.Table(TableDisplayed_xapth, "Table after a search button");
 			   
+		}
+	@And("^I search (.*) in quick search$")
+	   public void quickSearchResults(String element) throws Exception {  
+			   con.type(QuickSearch_xapth, element);
+			   con.buttonclick(QuickSearchBtn_xapth);
+			   
+		}
+	
+	@And("^I Select an (.*) from the list$")
+	public void selectActive(String elementName) throws Exception {	
+			con.mouseOver(elementName, ActiveProvider_xpath);
+		}
+	
+	@And("^I Scroll down to the bottom of the VCA Agreement details page and locate the associated agreement Services$")
+	public void scrollDownOnActive() throws Exception {	
+		con.scrollToPage(AgreementServices_xpath, "Agreement Services");
+		}
+	
+	@And("^I Select and Agreement Service with status(.*)$")
+	public void selectInActive(String element) throws Exception {	
+		con.mouseOver(element, ServiceInactive_xpath );
+		}
+	
+	@And("^I Click(.*)$")
+	public void clickActive(String element) throws Exception {	
+		con.mouseOver(element, Activate_xpath );
 		}
 	
 }
