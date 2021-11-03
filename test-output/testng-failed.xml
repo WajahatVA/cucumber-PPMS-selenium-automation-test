@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.va.eprs.testcases.EprsE2ETest">
+        <methods>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="Test001_Quality_Check"/>
+          <include name="Test003_CCN_Congressional_Inquiry"/>
+          <include name="Test005_CCN_Deviations"/>
+          <include name="Test004_CCN_Corrective_Action_Plan"/>
+          <include name="Test002_CCN_Issues"/>
+          <include name="Test006_CCN_Waivers"/>
+        </methods>
+      </class> <!-- com.va.eprs.testcases.EprsE2ETest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
