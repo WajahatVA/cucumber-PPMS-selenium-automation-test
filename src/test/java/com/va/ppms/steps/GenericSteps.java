@@ -104,7 +104,7 @@ System.out.println("Navigating to "+ URL);
 	
 	@And("^I Logon to PPMS as a Basic and select the (.*) option from the left panel$")
 	public void mouseOnElement(String elementName) throws Exception {
-	if(con.PageTitleVerify("My VAMC Agreement Dashboard - Dynamics 365")== true) {
+	if(con.PageTitleVerify("Microsoft Dynamics 365")== true) {
 		con.waitAndClick(HomeLink_xpath, elementName ,300);
 	}else {
 			con.overAndClick(elementName, SigIn_xpath);

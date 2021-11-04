@@ -30,12 +30,19 @@ public class Providers extends WebConnector {
 	
 	String NewNote_xpath= "//input[@id=\"create_note_medium_title\"]";
 	
-	String EditNote_xpath = "//button[@title=\"Edit this note\"]"; 
-	//String EditNote_xpath = "//span[@class=\"symbolFont Edit-symbol  \"]"; 
+	
+	
+	String eNewNote_xpath= "//input[starts-with(@id, 'create_note_medium_title')]";
+	
+	String EditNote_xpath = "//span[@class=\"symbolFont Edit-symbol  \"]"; 
+	
+	String DeleteNote_xpath ="//span[@class=\"symbolFont Delete-symbol  \"]"; 
 	
 	String MouseOverOnNoteEdited_xpath ="//*[contains(text(),'Note modified by')]";
 	
-	String NoteEdited_xpath = "//*[@class=\"cke_editable cke_editable_themed cke_contents_ltr\"]"; 
+	String NoteEdited_xpath = "//*[@class=\"cke_editable cke_editable_themed cke_contents_ltr\"]";
+	
+	String EditsNote_xpath = "//*[contains(text(),'Test Automation Note')]";
 	
 	String IFrame_xpath=  "//iframe[@title=\"Designer\"]";
 	
@@ -43,7 +50,18 @@ public class Providers extends WebConnector {
 	
 	String AddnoteButton_xpath ="//*[contains(text(),'Add note')]"; 
 	
+	String SavenoteButton_xpath ="//*[contains(text(),'Cancel')]"; 
 	
+	String CancelnoteButton_xpath= "//*[starts-with(@id, 'id-3562fc31-58d9-4fd0-985f-') and contains(@id, 'save_button')]";
+	
+	String deleteokxpath= "//*[@id=\"confirmButton\"]";
+	
+	String New_xpath = "//*[@title=\"New\"]";
+	
+	String providertype_xpath = "//*[@aria-label=\"Provider Type\"]";
+
+	
+//***************************************************************************************************	
 	@And("^I select the (.*) option from the left panel$")
     public void mouseOnElements(String elementName) throws Exception {
 			con.mouseOver(elementName, Providers_xpath);
@@ -79,19 +97,40 @@ public class Providers extends WebConnector {
 
 	@And("^I Open an existing note(.*)$")
 	public void openNote(String elementName) throws Exception {	
-//		con.waitAndClick(HomeLink_xpath, elementName ,300);
-//		con.mouseOver(elementName, Providers_xpath);
-//		con.mouseOver(elementName,ProviderName_xpath);
-//		con.mouseOver(elementName,ContactActivities_xpath);
+		con.mouseOver(elementName,Identifiers_xpath);
+		con.mouseOver(elementName,ContactActivities_xpath);
 		con.scrollToPage(MouseOverOnNoteEdited_xpath, elementName);
+		
 		con.mouseOver(elementName, MouseOverOnNoteEdited_xpath);
+		
 		con.mouseOver(elementName, EditNote_xpath);
-		con.buttonclick1(MouseOverOnNoteEdited_xpath);
-		con.elementIsPresent(EditNote_xpath);
-		//"Test Automation Note2", "Note");
+		con.enter(eNewNote_xpath, "Tes3t Automation Note", "Note");
+		
+		con.iFrame(IFrame_xpath);
+		con.iFrame(IFrame_xpath1);
+		con.enter(EditsNote_xpath, "T2st Automatio2n Note2", "Note");
+		
+		con.iFrameDefault();
+		con.scrollToPage(SavenoteButton_xpath, elementName);
+		con.buttonclick(CancelnoteButton_xpath);
+		con.mouseOver(elementName, DeleteNote_xpath);
+		con.mouseOver(elementName, deleteokxpath);
+		
+
 		
 	}
 
+	@And("^I click the (.*) button found in upper tool bar$")
+	public void New(String elementName) throws Exception {	
+		con.mouseOver(elementName, New_xpath);
+		
+	}
 	
+	@And("^I From the provider type field select (.*)$")
+	public void practiceAgency(String elementName) throws Exception {	
+		con.selectfromDropDown(providertype_xpath, elementName, "provider type field");
+		
+	}
 	
+
 }

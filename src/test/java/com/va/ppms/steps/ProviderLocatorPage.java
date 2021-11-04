@@ -20,7 +20,15 @@ public class ProviderLocatorPage extends WebConnector {
 	
 	String ServiceInactive_xpath=  "//*[@title=\"Inactive\"]";
 	
-	String Activate_xpath = "//*[contains(text(),'Activate')]";
+	String ServicePending_xpath=  "//*[@title=\"Pending\"]";
+
+	
+	String Activate_xpath= "//span[starts-with(@class, 'symbolFont Activate-symbol')]";
+	
+	String ActivateBtn_xpath= "//*[starts-with(@id, 'dialogButtonText_id-')]";
+	
+	String deActivateBtn_xpath= "//*[ends-with(@id, 'Deactivate2id-563-button')]";
+
 
 	String ProviderLocator_xpath = "//span[contains(text(),'Provider Locator')]";
 	
@@ -115,6 +123,10 @@ public class ProviderLocatorPage extends WebConnector {
 	@And("^I Click(.*)$")
 	public void clickActive(String element) throws Exception {	
 		con.mouseOver(element, Activate_xpath );
+		con.mouseOver(element, ActivateBtn_xpath);
+		con.mouseOver(element, ServicePending_xpath);
+	//	con.mouseOver(element, deActivateBtn_xpath);
+		
 		}
 	
 }

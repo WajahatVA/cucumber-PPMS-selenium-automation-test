@@ -343,7 +343,6 @@ public class WebConnector {
 			
 			WebElement requestDropDown = getObjectfromClass(objectKey);
 			requestDropDown.sendKeys(data);
-			reportPass(elementName, data);
 			reportPass("Mouse over" + elementName + "and set --", data);
 			waitForPageToLoad();
 		
@@ -404,6 +403,26 @@ public class WebConnector {
 		return e;
 	}
 
+	
+	// central function to extract objects
+		public WebElement namegetObjectfromClass(String objectKey) {
+			WebElement e = null;
+			WebDriverWait wait = new WebDriverWait(driver, 30);
+
+			try {
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.name(objectKey)));
+				e = driver.findElement(By.name((objectKey)));// present
+				
+				System.out.println(objectKey);
+
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				reportFailure("Unable to extract Object " + objectKey);
+			}
+			return e;
+		}
+	
+	
 // true - present
 // false - not present
 	public boolean isElementPresent(String objectKey) {
@@ -560,7 +579,29 @@ public class WebConnector {
 			}
 			
 			
-
+			public void mouseOverByName(String elementName, String field_element) throws InterruptedException {
+				waitForPageToLoad();
+				Thread.sleep(1000);
+				
+				try {
+					Actions builder = new Actions(driver);
+					WebElement element = namegetObjectfromClass(field_element);
+					Action mouseOverHome = builder.moveToElement(element).build();
+					mouseOverHome.perform();
+					Thread.sleep(100);
+					element.click();
+					Thread.sleep(1000);
+					waitForPageToLoad();
+					reportPass("Mouse over and click on --", elementName);
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					reportFailure("Page didn't didplay " + ex);
+				}
+			}
+			
+			
+			
+			
 	public void mouseOver(String elementName, String field_element) throws InterruptedException {
 		waitForPageToLoad();
 		Thread.sleep(1000);
@@ -941,6 +982,27 @@ public class WebConnector {
 		}
 
 	}
+	
+	public void LIstclick(String objectKey) throws InterruptedException {
+		waitForPageToLoad();
+		List RadioButton = driver.findElements(By.name(objectKey));
+        // selecting the Radio buttons by Name
+
+        int Size = RadioButton.size();                // finding the number of Radio buttons
+
+        for(int i=0; i < Size; i++)                      // starts the loop from first Radio button to the last one
+       { 
+     String val = ((WebElement) RadioButton.get(i)).getAttribute("value");
+ // Radio button name stored to the string variable, using 'Value' attribute
+
+     if (val.equalsIgnoreCase(objectKey))   // equalsIgnoreCase is ignore case(upper/lower)
+              {                 // selecting the Radio button if its value is same as that we are looking for
+     ((WebElement) RadioButton.get(i)).click();
+     break;
+         }
+           }
+	}
+	
 
 }
 
