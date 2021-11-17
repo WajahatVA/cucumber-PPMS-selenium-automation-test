@@ -27,12 +27,15 @@ public class ProviderLocatorPage extends WebConnector {
 	
 	String ActivateBtn_xpath= "//*[starts-with(@id, 'dialogButtonText_id-')]";
 	
-	String deActivateBtn_xpath= "//*[ends-with(@id, 'Deactivate2id-563-button')]";
+	String deActivate_xpath= "//*[starts-with(@class, 'symbolFont DeActivate-symbol')]";
+	String deActivateBtn_xpath= "//*[starts-with(@id, 'dialogButtonText_id-')]";
 
 
 	String ProviderLocator_xpath = "//span[contains(text(),'Provider Locator')]";
 	
 	String AgreementsLocator_xpath = "//span[contains(text(),'Agreements')]";
+	
+	String FacilitiesLocator_xpath = "//span[contains(text(),'Facilities')]";
 		
 	String FullAddress_xpath=  "//*[@class=\"form-control required searchBox\"]";
 	
@@ -125,7 +128,8 @@ public class ProviderLocatorPage extends WebConnector {
 		con.mouseOver(element, Activate_xpath );
 		con.mouseOver(element, ActivateBtn_xpath);
 		con.mouseOver(element, ServicePending_xpath);
-	//	con.mouseOver(element, deActivateBtn_xpath);
+		con.mouseOver(element, deActivate_xpath);
+		con.mouseOver(element, deActivateBtn_xpath);
 		
 		}
 	

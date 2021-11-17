@@ -1,4 +1,4 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/java/com/va/ppms/features/System Administrator.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/java/com/va/ppms/features/SystemAdministrator_Locator.feature");
 formatter.feature({
   "name": "Providers page validation",
   "description": "",
@@ -13,12 +13,12 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "name": "TC004: (PPMS-1002) PPMS-821_System Administrator Role: An option to display At home services only using provider details drop down",
+  "name": "TC005: (PPMS-1368) PPMS-930 _ System Administrator_ Bulk edit care site Lat/Long",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@SystemAdministrator"
+      "name": "@SystemAdministrator2"
     }
   ]
 });
@@ -27,7 +27,7 @@ formatter.step({
   "keyword": "And "
 });
 formatter.step({
-  "name": "I select the \"Provider Locator\" Option",
+  "name": "I pick \"Facilities\" option from the left panel",
   "keyword": "And "
 });
 formatter.step({
@@ -35,11 +35,15 @@ formatter.step({
   "keyword": "And "
 });
 formatter.step({
-  "name": "I Enter \u003cFull Address\u003e and \"specialty search\" and \u003cspecialty search\u003e search option",
+  "name": "I Select multiple facilities on the Facilities page and click on Edit option",
   "keyword": "And "
 });
 formatter.step({
-  "name": "I Expand the Search Results",
+  "name": "I Enter a new value in the Latitude and Longitude field and click Change",
+  "keyword": "And "
+});
+formatter.step({
+  "name": "I Open each facility included in the Bulk Update and confirm the new assigned Latitude and Longitude is saved and is the same for each facility included in the Bulk facility update",
   "keyword": "And "
 });
 formatter.examples({
@@ -49,16 +53,12 @@ formatter.examples({
   "rows": [
     {
       "cells": [
-        "PageName",
-        "Full Address",
-        "specialty search"
+        "PageName"
       ]
     },
     {
       "cells": [
-        "Note:  VA Facilities will always display on the locator. PPMS does not define specialties for VA Facilities",
-        "1065 N Sterling Ave, Palatine, Illinois 60067, United States",
-        "1300 Gabel Road"
+        "Active Facilities"
       ]
     }
   ]
@@ -92,7 +92,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "TC004: (PPMS-1002) PPMS-821_System Administrator Role: An option to display At home services only using provider details drop down",
+  "name": "TC005: (PPMS-1368) PPMS-930 _ System Administrator_ Bulk edit care site Lat/Long",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
@@ -103,7 +103,7 @@ formatter.scenario({
       "name": "@PPMS"
     },
     {
-      "name": "@SystemAdministrator"
+      "name": "@SystemAdministrator2"
     }
   ]
 });
@@ -118,17 +118,17 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I select the \"Provider Locator\" Option",
+  "name": "I pick \"Facilities\" option from the left panel",
   "keyword": "And "
 });
 formatter.match({
-  "location": "ProviderLocatorPage.mouseOnElements(String)"
+  "location": "ProviderServicesPage.mouseOnElements(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I verify page Note:  VA Facilities will always display on the locator. PPMS does not define specialties for VA Facilities is displayed",
+  "name": "I verify page Active Facilities is displayed",
   "keyword": "And "
 });
 formatter.match({
@@ -138,21 +138,31 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I Enter 1065 N Sterling Ave, Palatine, Illinois 60067, United States and \"specialty search\" and 1300 Gabel Road search option",
+  "name": "I Select multiple facilities on the Facilities page and click on Edit option",
   "keyword": "And "
 });
 formatter.match({
-  "location": "ProviderLocatorPage.addressAndSubSearch(String,String,String)"
+  "location": "Facilities.selectActive()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I Expand the Search Results",
+  "name": "I Enter a new value in the Latitude and Longitude field and click Change",
   "keyword": "And "
 });
 formatter.match({
-  "location": "ProviderLocatorPage.searchResults()"
+  "location": "Facilities.input()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I Open each facility included in the Bulk Update and confirm the new assigned Latitude and Longitude is saved and is the same for each facility included in the Bulk facility update",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "Facilities.verify()"
 });
 formatter.result({
   "status": "passed"

@@ -258,6 +258,7 @@ public class WebConnector {
 	public void enter(String objectKey, String data, String elementname) throws InterruptedException {
 		waitForPageToLoad();
 		try {
+			getObjectfromClass(objectKey).clear();
 			getObjectfromClass(objectKey).sendKeys(data);
 			Thread.sleep(100);
 			reportPass(elementname, data);
@@ -1002,6 +1003,32 @@ public class WebConnector {
          }
            }
 	}
+	
+	public void RadioButton(String objectKey, int value ) throws InterruptedException {
+		waitForPageToLoad();
+		List <WebElement> RadioButton =  driver.findElements(By.xpath((objectKey)));// present
+           RadioButton.get(value).click();
+
+	}
+
+
+
+public void onlyMouseOver( String field_element) throws InterruptedException {
+		waitForPageToLoad();
+		Thread.sleep(1000);
+		
+		try {
+			Actions builder = new Actions(driver);
+			WebElement element = getObjectfromClass2(field_element);
+			Action mouseOverHome = builder.moveToElement(element).build();
+			mouseOverHome.perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+
+		}
+	}
+	
+	
 	
 
 }
