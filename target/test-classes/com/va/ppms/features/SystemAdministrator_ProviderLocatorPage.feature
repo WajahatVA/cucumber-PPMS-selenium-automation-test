@@ -13,7 +13,7 @@ Feature: Provider locator page validation
   @SystemAdministrator
   Scenario Outline: TC001: (PPMS-1002) PPMS-821_System Administrator Role: An option to display At home services only using provider details drop down
     And I Logon to PPMS as a Basic and select the "Home" option from the left panel
-    And I select the "Provider Locator" Option
+    And I mouseover and select the "Provider Locator" Option
     And I verify page <PageName> is displayed
     And I Enter <Full Address> and "specialty search" and <specialty search> search option
     And I Expand the Search Results
@@ -36,7 +36,7 @@ Feature: Provider locator page validation
   @SystemAdministrator
   Scenario Outline: TC002: (PPMS-998) PPMS-820_System Administrator Role: At Home Services are included with the specialty search results in Provider Locator UI
     And I Logon to PPMS as a Basic and select the "Home" option from the left panel
-    And I select the "Provider Locator" Option
+    And I mouseover and select the "Provider Locator" Option
     And I verify page <PageName> is displayed
     And I Enter <Full Address> and "specialty search" and <specialty search> search option
     And I Expand the Search Results

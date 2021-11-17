@@ -66,7 +66,7 @@ public class ProviderLocatorPage extends WebConnector {
 	
 
 	
-	@And("^I select the (.*) Option$")
+	@And("^I mouseover and select the (.*) Option$")
     public void mouseOnElements(String elementName) throws Exception {
 		if (elementName.contains("Provider Locator")) {
 			con.mouseOver(elementName, ProviderLocator_xpath);

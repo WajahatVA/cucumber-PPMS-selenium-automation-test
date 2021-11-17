@@ -35,7 +35,7 @@ Feature: Providers page validation
   @SystemAdministrator
   Scenario Outline: TC002: (PPMS-1015) PPMS-563_System Administrator Role: Query the specialty search results in PL for the subservice
     And I Logon to PPMS as a Basic and select the "Home" option from the left panel
-    And I select the "Provider Locator" option from the left panel
+    And I mouseover and select the "Provider Locator" Option
     And I verify page <PageName> is displayed
     And I Enter <Full Address> and "SubServiceSearch" and <Sub Service> search option
     And I Expand the Search Results
@@ -54,7 +54,7 @@ Feature: Providers page validation
   @SystemAdministrator
   Scenario Outline: TC003: (PPMS-1009) PPMS-454_System Administrator Role: Agreement Status Any Other Than Active
     And I Logon to PPMS as a Basic and select the "Home" option from the left panel
-    And I select the "Agreements" Option
+    And I mouseover and select the "Agreements" Option
     And I verify page <PageName> is displayed
     And I search <Agreement No> in quick search
     And I Select an "active Provider" from the list
