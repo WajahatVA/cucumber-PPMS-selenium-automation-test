@@ -1,0 +1,208 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 2300796100,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I open CHROME",
+            "match": {
+              "arguments": [
+                {
+                  "val": "CHROME",
+                  "offset": 7
+                }
+              ],
+              "location": "GenericSteps.openBrowser(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1403904300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I go to URL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "URL",
+                  "offset": 8
+                }
+              ],
+              "location": "GenericSteps.navigate(String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 153745100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "GenericSteps.before(Scenario)"
+            }
+          }
+        ],
+        "line": 103,
+        "name": "TC005: (PPMS-1368) PPMS-930 _ System Administrator_ Bulk edit care site Lat/Long",
+        "description": "",
+        "id": "providers-page-validation;tc005:-(ppms-1368)-ppms-930---system-administrator--bulk-edit-care-site-lat/long;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 882732700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "GenericSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2588855100,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "I Logon to PPMS as a Basic and select the \"Home\" option from the left panel",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Home\"",
+                  "offset": 42
+                }
+              ],
+              "location": "GenericSteps.mouseOnElement(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2781882800,
+              "status": "passed"
+            },
+            "line": 96,
+            "name": "I pick \"Facilities\" option from the left panel",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Facilities\"",
+                  "offset": 7
+                }
+              ],
+              "location": "ProviderServicesPage.mouseOnElements(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 262935700,
+              "status": "passed"
+            },
+            "line": 97,
+            "name": "I verify page Active Facilities is displayed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Active Facilities",
+                  "offset": 14
+                }
+              ],
+              "location": "GenericSteps.verifyPageTitle(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5520825100,
+              "status": "passed"
+            },
+            "line": 98,
+            "name": "I Select multiple facilities on the Facilities page and click on Edit option",
+            "match": {
+              "location": "Facilities.selectActive()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 7598616000,
+              "status": "passed"
+            },
+            "line": 99,
+            "name": "I Enter a new value in the Latitude and Longitude field and click Change",
+            "match": {
+              "location": "Facilities.input()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 11181440900,
+              "status": "passed"
+            },
+            "line": 100,
+            "name": "I Open each facility included in the Bulk Update and confirm the new assigned Latitude and Longitude is saved and is the same for each facility included in the Bulk facility update",
+            "match": {
+              "location": "Facilities.verify()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@BeforeeveryTest"
+          },
+          {
+            "name": "@PPMS"
+          },
+          {
+            "name": "@SystemAdministrator2"
+          }
+        ]
+      }
+    ],
+    "name": "Providers page validation",
+    "description": "",
+    "id": "providers-page-validation",
+    "keyword": "Feature",
+    "uri": "src/test/java/com/va/ppms/features/SystemAdministrator_Locator.feature",
+    "tags": [
+      {
+        "name": "@BeforeeveryTest",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@PPMS",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 18
+        }
+      }
+    ]
+  }
+]
