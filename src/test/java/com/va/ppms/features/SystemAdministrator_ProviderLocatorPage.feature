@@ -20,7 +20,7 @@ Feature: Provider locator page validation
 
     Examples: 
       | PageName                                                                                                    | Full Address                                                 | specialty search |
-      | Note:  VA Facilities will always display on the locator. PPMS does not define specialties for VA Facilities | 1065 N Sterling Ave, Palatine, Illinois 60067, United States | 1300 Gabel Road  |
+      | Note:  VA Facilities will always display on the locator. PPMS does not define specialties for VA Facilities | 1065 N Sterling Ave, Palatine, Illinois 60067, United States |  Meditation Therapy  |
 
   ## Description
   #As a PPMS user I need all services including at home services included with the specialty search results so I know all services available in my area

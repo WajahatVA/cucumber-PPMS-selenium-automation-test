@@ -59,6 +59,8 @@ public class Providers extends WebConnector {
 	String New_xpath = "//*[@title=\"New\"]";
 	
 	String providertype_xpath = "//*[@aria-label=\"Provider Type\"]";
+	
+	String ProviderService_xpath = "//span[contains(text(),'Provider Service')]";
 
 	
 //***************************************************************************************************	
@@ -79,8 +81,6 @@ public class Providers extends WebConnector {
 	@And("^I Scroll down the page to the Activities session and select the (.*) option$")
 	public void clickElement(String elementName) throws Exception {	
 		con.mouseOver(elementName, EnterANote_xpath);
-	//	con.buttonclick(EnterANote_xpath);
-	//	con.enter(NoteEdited_xpath, "Test", "Edit Notes");
 	}
 
 	@And("^I Enter a Note in the note input field and click(.*)$")

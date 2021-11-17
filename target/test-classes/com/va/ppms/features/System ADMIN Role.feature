@@ -6,7 +6,7 @@ Feature: Providers page validation
     And I go to URL
 
       @SystemADMINRole 
-  Scenario Outline: TC001: (PPMS-1019) PPMS-160_Basic User: Update notes in the activities field
+  Scenario Outline: TC001: (PPMS-1019)=
     And I Logon to PPMS as a Basic and select the "Home" option from the left panel
     And I select the "Provider" option from the left panel
     And I verify page <PageName> is displayed

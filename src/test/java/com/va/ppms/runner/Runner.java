@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
             monochrome = true, 
             features = {"src/test/java/com/va/ppms/features/" }, 
             glue = {"com.va.ppms.steps" }, 
-            tags= {"@22SystemAdministrator"}, 
+            tags= {"@SystemAdministrator"}, 
 			plugin = { "pretty", 
 					"html:target/cucumber-reports", "html:target/site/cucumber-html", 
 					"json:target/cucumber1.json" })
